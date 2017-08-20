@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>When did it last air?</title>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://unpkg.com/vue@2.3.3"></script>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <div id="app">
+      <h1>When did it last air?</h1>
+      <div class="search">
+        <input v-model.lazy="showSearch" type="search" placeholder="Search for the TV show">
+      </div>
+
+      <div v-if="showLastAir" class="result">
+        <p>Last episode called <strong>{{ showEpName }}</strong> aired on <strong>{{ showLastAir | timeFix }}</strong> and it was about:
+          <br>
+          {{ showPlot }}
+        </p>
+      </div>
+
+      <footer>
+        <p>Made by <a href="https://github.com/techlogx">techlogx</a> with the power of <a href="http://docs.trakt.apiary.io/">Trakt.tv API</a></p>
+      </footer>
+
+    </div>
+    <script src="app.js"></script>
+  </body>
+</html>
